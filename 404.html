@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Página no encontrada | Blux</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="assets/blux-logo.svg" />
+
+  <!-- Fuentes optimizadas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#0052FF',
+              cyan: '#00C8FF',
+              dark: '#0A0F1D',
+              muted: '#64748B',
+              subtle: '#94A3B8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            mono: ['"Inter Tight"', '-apple-system', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #F8FAFC;
+      color: #0F172A;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    ::selection {
+      background-color: #0052FF;
+      color: #FFFFFF;
+    }
+
+    .ambient-glow {
+      position: absolute;
+      width: 100%;
+      max-width: 650px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(0, 82, 255, 0.08) 0%, rgba(0, 200, 255, 0.02) 65%, transparent 75%);
+      filter: blur(70px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 16px 40px -10px rgba(15, 23, 42, 0.05);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.03);
+    }
+  </style>
+</head>
+<body class="relative min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-brand-blue selection:text-white">
+
+  <!-- Glow ambiental -->
+  <div class="ambient-glow top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+  <!-- NAVEGACIÓN FLOTANTE -->
+  <div class="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-3 sm:px-4">
+    <header class="glass-nav rounded-full px-4 sm:px-6 h-12 py-2 flex items-center justify-between gap-4 max-w-2xl w-full">
+      <a href="index.html" class="flex items-center gap-2.5 group">
+        <img src="assets/blux-logo.svg" alt="Blux" class="h-6 w-auto transition-transform duration-300 group-hover:scale-105" />
+        <span class="text-base sm:text-lg font-bold tracking-tight text-slate-900">Blux</span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-xs font-semibold px-3.5 py-1.5 rounded-full bg-slate-900/5 hover:bg-brand-blue hover:text-white active:bg-brand-blue active:text-white text-slate-800 transition-all flex items-center gap-1.5 shadow-sm">
+          <span>Ir al inicio</span>
+          <span class="text-[11px]">&rarr;</span>
+        </a>
+      </div>
+    </header>
+  </div>
+
+  <!-- CONTENIDO CENTRAL -->
+  <main class="relative z-10 flex-1 flex items-center justify-center px-4 pt-28 pb-12">
+    <div class="glass-panel rounded-3xl p-6 sm:p-12 max-w-lg w-full text-center relative overflow-hidden">
+      
+      <!-- Badge de estado -->
+      <div class="inline-flex items-center gap-2 text-[11px] font-mono tracking-wider uppercase text-rose-500 font-semibold px-3 py-1 rounded-full bg-rose-50 border border-rose-100 mb-6 shadow-sm">
+        <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+        Error 404 — Ruta no encontrada
+      </div>
+
+      <!-- Título de impacto -->
+      <h1 class="text-5xl sm:text-7xl font-bold tracking-tight text-slate-900 leading-none mb-4 font-mono">
+        404
+      </h1>
+
+      <p class="text-base sm:text-lg font-bold text-slate-800 mb-2 tracking-tight">
+        Parece que esta herramienta o página ya no existe.
+      </p>
+
+      <p class="text-xs sm:text-sm text-brand-muted leading-relaxed mb-8 max-w-md mx-auto">
+        El enlace puede estar desactualizado o haber sido movido. Te redirigiremos a los proyectos principales de forma automática.
+      </p>
+
+      <!-- Barra de redirección y botones -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <a 
+          href="index.html" 
+          class="w-full sm:w-auto px-6 py-3 rounded-xl bg-brand-blue hover:bg-[#0047E0] active:bg-[#0047E0] text-white font-semibold text-xs sm:text-sm transition-all shadow-md shadow-brand-blue/20 flex items-center justify-center gap-2"
+        >
+          <span>Volver al portfolio</span>
+          <span>&rarr;</span>
+        </a>
+
+        <a 
+          href="index.html#contacto" 
+          class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition-all shadow-sm flex items-center justify-center"
+        >
+          Contactar soporte
+        </a>
+      </div>
+
+      <!-- Contador regresivo visual -->
+      <div class="mt-8 pt-6 border-t border-slate-100 flex items-center justify-center gap-2 text-slate-400 text-xs font-mono">
+        <span>Redirigiendo en</span>
+        <span id="countdown" class="font-bold text-brand-blue bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 text-[11px]">8</span>
+        <span>segundos...</span>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 py-6 text-center text-slate-400 text-xs font-mono">
+    <span>© 2026 Blux. Todos los derechos reservados.</span>
+  </footer>
+
+  <!-- SCRIPT DE REDIRECCIÓN AUTOMÁTICA -->
+  <script>
+    let seconds = 8;
+    const countdownElement = document.getElementById('countdown');
+
+    const timer = setInterval(() => {
+      seconds--;
+      if (countdownElement) {
+        countdownElement.textContent = seconds;
+      }
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = 'index.html';
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
