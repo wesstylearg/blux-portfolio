@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>TU NEGOCIO · Catálogo Mayorista Online | Demo por Blux</title>
+  <meta name="description" content="Demo interactiva de catálogo online para distribuidoras y mayoristas. Pedidos directos a WhatsApp, control de stock y experiencia ultra-rápida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- TOP BANNER BLUX DEMO -->
+  <aside class="demo-banner">
+    <div class="demo-banner-content">
+      <span class="badge-pill">DEMO INTERACTIVA</span>
+      <p class="demo-banner-text">
+        <strong>Demo de demostración:</strong> Catálogo 100% personalizable según las necesidades de tu distribuidora o negocio.
+      </p>
+      <div class="demo-banner-actions">
+        <a href="../" class="btn-banner-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Volver a Blux
+        </a>
+        <a href="https://wa.me/5492983448645?text=Hola%20Blux,%20estoy%20viendo%20la%20demo%20de%20Cat%C3%A1logo%20Mayorista%20y%20me%20gustar%C3%ADa%20uno%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-banner-cta">
+          Quiero este catálogo
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN HEADER / NAVBAR -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-avatar">TN</div>
+        <div class="brand-info">
+          <div class="brand-title-wrap">
+            <h1 class="brand-name">TU NEGOCIO</h1>
+            <span class="status-indicator" title="Atendiendo pedidos">
+              <span class="status-dot"></span> Abierto
+            </span>
+          </div>
+          <p class="brand-subtitle">Distribuidora Mayorista & Envíos a todo el país</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button id="btn-open-cart" class="btn-cart-nav" aria-label="Ver carrito">
+          <div class="cart-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+              <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+            </svg>
+            <span id="cart-counter-badge" class="cart-count">0</span>
+          </div>
+          <span class="btn-cart-nav-label">Mi Pedido</span>
+          <span id="cart-nav-total" class="btn-cart-nav-total">$0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        Lista de Precios Mayorista Oficial
+      </div>
+      <h2 class="hero-title">Tu catálogo. Tus productos. <span class="highlight-red">Tus pedidos.</span></h2>
+      <p class="hero-description">
+        Precios actualizados en tiempo real. Seleccioná las cantidades de bultos o unidades y enviá el pedido directamente a nuestro WhatsApp para preparar tu despacho sin demoras ni comisiones.
+      </p>
+
+      <!-- BARRA DE BÚSQUEDA Y ACCIONES RÁPIDAS -->
+      <div class="search-box-wrap">
+        <div class="search-input-box">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" id="catalog-search" placeholder="Buscá por producto, marca (ej: Coca Cola, Playadito) o código..." autocomplete="off" />
+          <button id="clear-search" class="clear-search-btn" aria-label="Limpiar búsqueda" style="display: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORY TABS HORIZONTAL SCROLLER -->
+  <nav class="categories-nav-sticky" aria-label="Categorías de productos">
+    <div class="categories-container" id="category-tabs">
+      <button class="category-chip active" data-category="todos">
+        <span>Todos los productos</span>
+        <span class="chip-count" id="chip-count-todos">0</span>
+      </button>
+      <button class="category-chip" data-category="Bebidas">
+        <span>Bebidas</span>
+        <span class="chip-count" id="chip-count-bebidas">0</span>
+      </button>
+      <button class="category-chip" data-category="Almacén">
+        <span>Almacén</span>
+        <span class="chip-count" id="chip-count-almacen">0</span>
+      </button>
+      <button class="category-chip" data-category="Snacks">
+        <span>Snacks</span>
+        <span class="chip-count" id="chip-count-snacks">0</span>
+      </button>
+      <button class="category-chip" data-category="Golosinas">
+        <span>Golosinas</span>
+        <span class="chip-count" id="chip-count-golosinas">0</span>
+      </button>
+      <button class="category-chip" data-category="Limpieza">
+        <span>Limpieza</span>
+        <span class="chip-count" id="chip-count-limpieza">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CATALOG CONTENT -->
+  <main class="catalog-layout-main">
+    <div class="catalog-container">
+      
+      <!-- SUB-FILTROS Y ORDENAMIENTO -->
+      <aside class="catalog-controls-bar">
+        <div class="active-count-indicator">
+          Mostrando <strong id="visible-products-count">0</strong> productos
+        </div>
+
+        <div class="filter-controls-group">
+          <!-- Filtro por Marca -->
+          <div class="control-select-wrap">
+            <label for="filter-brand">Marca:</label>
+            <select id="filter-brand">
+              <option value="todas">Todas las marcas</option>
+            </select>
+          </div>
+
+          <!-- Filtro Solo con Stock -->
+          <label class="toggle-stock-checkbox">
+            <input type="checkbox" id="filter-stock-only" />
+            <span class="checkmark"></span>
+            <span class="label-text">Solo en stock</span>
+          </label>
+
+          <!-- Ordenar por -->
+          <div class="control-select-wrap">
+            <label for="sort-by">Ordenar:</label>
+            <select id="sort-by">
+              <option value="destacados">Destacados</option>
+              <option value="precio-asc">Menor precio</option>
+              <option value="precio-desc">Mayor precio</option>
+              <option value="nombre-asc">Nombre A-Z</option>
+            </select>
+          </div>
+        </div>
+      </aside>
+
+      <!-- PRODUCT GRID -->
+      <section id="products-grid" class="products-grid" aria-label="Grilla de productos">
+        <!-- Renderizado dinámicamente con JavaScript -->
+      </section>
+
+      <!-- EMPTY STATE -->
+      <div id="no-results-state" class="empty-state-box" style="display: none;">
+        <div class="empty-icon-circle">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="m15 9-6 6M9 9l6 6"/></svg>
+        </div>
+        <h3 class="empty-title">No encontramos productos con ese criterio</h3>
+        <p class="empty-desc">Probá cambiando el término de búsqueda, seleccionando otra categoría o quitando los filtros aplicados.</p>
+        <button id="btn-reset-filters" class="btn-secondary">Restablecer filtros</button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BLUX PROMO & VALUE PROP SECTION -->
+  <section class="blux-showcase-section">
+    <div class="blux-showcase-container">
+      <div class="showcase-header">
+        <div class="showcase-tag">POTENCIÁ TU NEGOCIO CON BLUX</div>
+        <h2 class="showcase-title">¿Tenés una distribuidora, fábrica o venta mayorista?</h2>
+        <p class="showcase-sub">
+          Digitalizá tu catálogo hoy mismo con un sistema ultra rápido, simple de administrar y conectado a tu WhatsApp, sin depender de intermediarios ni comisiones abusivas por venta.
+        </p>
+      </div>
+
+      <div class="showcase-cards-grid">
+        <div class="showcase-feature-card">
+          <div class="feat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <h3>0% Comisiones por venta</h3>
+          <p>Tus ganancias son 100% tuyas. No pagás porcentajes por cada bulto vendido ni cánones mensuales ocultos.</p>
+        </div>
+
+        <div class="showcase-feature-card">
+          <div class="feat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Actualización de Precios Express</h3>
+          <p>Cambiá precios o stock de forma masiva desde una planilla o panel simple en 2 minutos sin complicaciones técnicas.</p>
+        </div>
+
+        <div class="showcase-feature-card">
+          <div class="feat-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3>Pedidos Directos al WhatsApp</h3>
+          <p>Tus clientes arman el pedido, el sistema calcula el total y te llega un mensaje prolijo listo para facturar y despachar.</p>
+        </div>
+      </div>
+
+      <div class="showcase-cta-banner">
+        <div class="cta-text-left">
+          <h3>Pedí tu propio catálogo a medida con Blux</h3>
+          <p>Entrega rápida en 1 a 2 semanas. Te lo dejamos listo con tu logo, tus productos y tu dominio.</p>
+        </div>
+        <div class="cta-actions-right">
+          <a href="https://wa.me/5492983448645?text=Hola%20Blux,%20quiero%20cotizar%20un%20cat%C3%A1logo%20online%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer" class="btn-primary-whatsapp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            Contactar a Blux por WhatsApp
+          </a>
+          <a href="../" class="btn-secondary-light">Ver todos los proyectos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-brand-side">
+        <span class="footer-logo">TU NEGOCIO</span>
+        <p class="footer-note">Demo tecnológica desarrollada y optimizada por <a href="../">Blux</a>.</p>
+      </div>
+      <div class="footer-links-side">
+        <a href="../">Inicio Blux</a>
+        <a href="../#servicios">Servicios</a>
+        <a href="../#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING CART BUTTON (BOTTOM ON MOBILE) -->
+  <div class="floating-cart-bar" id="floating-cart-bar">
+    <button class="btn-floating-cart" id="btn-floating-cart">
+      <div class="float-cart-left">
+        <span class="float-badge" id="float-cart-counter">0</span>
+        <span class="float-label">Ver Pedido</span>
+      </div>
+      <div class="float-cart-right">
+        <span class="float-total" id="float-cart-total">$0</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+      </div>
+    </button>
+  </div>
+
+  <!-- CART DRAWER / SIDEBAR -->
+  <div id="cart-drawer-backdrop" class="cart-backdrop"></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <div class="cart-header-title-wrap">
+        <h2>Tu Pedido</h2>
+        <span id="cart-items-count-tag" class="items-count-tag">0 ítems</span>
+      </div>
+      <button id="btn-close-cart" class="btn-close-modal" aria-label="Cerrar pedido">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- CART LIST CONTENT -->
+    <div class="cart-body">
+      <!-- Empty state inside cart -->
+      <div id="cart-empty-message" class="cart-empty-state">
+        <div class="cart-empty-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        </div>
+        <h4>Tu pedido está vacío</h4>
+        <p>Explorá el catálogo y agregá los productos que necesitás para tu comercio o depósito.</p>
+        <button id="btn-cart-start-shopping" class="btn-secondary">Ver catálogo</button>
+      </div>
+
+      <!-- Items list -->
+      <ul id="cart-items-list" class="cart-items-list">
+        <!-- Renderizado dinámicamente -->
+      </ul>
+
+      <!-- Observations / Notes field -->
+      <div id="cart-notes-container" class="cart-notes-box" style="display: none;">
+        <label for="order-notes" class="notes-label">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Notas o aclaraciones para el despacho (opcional):
+        </label>
+        <textarea id="order-notes" rows="2" placeholder="Ej: Horario de entrega preferido, aclaraciones de embalaje, etc."></textarea>
+      </div>
+    </div>
+
+    <!-- CART FOOTER -->
+    <div id="cart-footer" class="cart-footer" style="display: none;">
+      <div class="cart-subtotal-row">
+        <span>Subtotal estimado:</span>
+        <strong id="cart-subtotal-amount">$0</strong>
+      </div>
+      <div class="cart-shipping-notice">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        Los costos de flete o transporte se coordinan tras el envío del pedido.
+      </div>
+      <div class="cart-action-buttons">
+        <button id="btn-proceed-checkout" class="btn-checkout-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Completar datos y enviar por WhatsApp
+        </button>
+        <button id="btn-clear-cart" class="btn-clear-link">Vaciar pedido</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div id="product-modal-backdrop" class="modal-backdrop"></div>
+  <div id="product-modal" class="product-modal" role="dialog" aria-modal="true">
+    <button id="btn-close-product-modal" class="btn-close-modal" aria-label="Cerrar detalle">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <div id="product-modal-content" class="product-modal-body">
+      <!-- Renderizado dinámicamente con JS -->
+    </div>
+  </div>
+
+  <!-- CHECKOUT / CUSTOMER INFO MODAL -->
+  <div id="checkout-modal-backdrop" class="modal-backdrop"></div>
+  <div id="checkout-modal" class="checkout-modal" role="dialog" aria-modal="true">
+    <div class="checkout-modal-header">
+      <h3>Datos de Envío y Facturación</h3>
+      <button id="btn-close-checkout-modal" class="btn-close-modal" aria-label="Cerrar datos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="checkout-modal-body">
+      <p class="checkout-instruction">Completá tus datos para que el vendedor pueda armar la orden y coordinar el despacho sin errores:</p>
+      
+      <form id="checkout-form" class="checkout-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="cust-name">Nombre y Apellido o Razón Social *</label>
+          <input type="text" id="cust-name" placeholder="Ej: Distribuidora Sol / Juan Pérez" required />
+        </div>
+
+        <div class="form-row-2">
+          <div class="form-group">
+            <label for="cust-cuit">CUIT o DNI (opcional)</label>
+            <input type="text" id="cust-cuit" placeholder="Ej: 30-12345678-9" />
+          </div>
+          <div class="form-group">
+            <label for="cust-phone">Teléfono de contacto *</label>
+            <input type="tel" id="cust-phone" placeholder="Ej: 341 555-1234" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="cust-city">Ciudad / Localidad y Provincia *</label>
+          <input type="text" id="cust-city" placeholder="Ej: Rosario, Santa Fe" required />
+        </div>
+
+        <div class="form-group">
+          <label for="cust-address">Dirección de entrega o Transporte preferido</label>
+          <input type="text" id="cust-address" placeholder="Ej: Av. Pellegrini 1500 / Expreso Brio" />
+        </div>
+
+        <div class="form-group">
+          <label for="cust-payment">Forma de pago preferida</label>
+          <select id="cust-payment">
+            <option value="Transferencia Bancaria">Transferencia Bancaria (CBU / Alias)</option>
+            <option value="Efectivo contra entrega">Efectivo contra entrega / Despacho</option>
+            <option value="Cheque / Cuenta Corriente">Cheque / Cuenta Corriente previa autorización</option>
+          </select>
+        </div>
+
+        <div class="checkout-order-summary-box">
+          <div class="summary-line">
+            <span>Total del pedido:</span>
+            <strong id="checkout-total-display">$0</strong>
+          </div>
+          <p class="summary-disclaimer">Al presionar el botón se abrirá WhatsApp con el mensaje estructurado listo para enviar.</p>
+        </div>
+
+        <button type="submit" id="btn-submit-whatsapp-order" class="btn-primary-whatsapp-large">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Enviar Pedido por WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- SCRIPTS -->
+  <script src="script.js"></script>
+</body>
+</html>
