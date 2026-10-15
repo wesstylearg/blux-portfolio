@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inmobiliaria de ejemplo · Propiedades en Bahía Blanca</title>
+  <meta name="description" content="Demo de sitio inmobiliario: propiedades en venta y alquiler en Bahía Blanca. Datos ilustrativos.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230a2a5e'/%3E%3Cpath d='M9 22V14l7-5 7 5v8' fill='none' stroke='white' stroke-width='2.2' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Saltar al contenido</a>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="logo" href="#/" aria-label="Inmobiliaria de ejemplo, ir al inicio">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 19V10.5L12 5l7 5.5V19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/><path d="M10 19v-5h4v5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="logo-text"><strong>Inmobiliaria</strong> <span>de ejemplo</span></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#/" data-nav="home">Inicio</a></li>
+          <li><a href="#/propiedades" data-nav="catalog">Propiedades</a></li>
+          <li><a href="#/contacto" data-nav="contact">Contacto</a></li>
+          <li class="nav-mobile-only"><a href="#/favoritos" data-nav="favorites">Favoritos</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="icon-btn fav-link" href="#/favoritos" data-nav="favorites" aria-label="Ver favoritos">
+          <span data-icon="heart"></span>
+          <span class="badge-count" id="favCount" hidden>0</span>
+        </a>
+        <a class="btn btn-whatsapp btn-sm header-wa" id="headerWa" href="#" target="_blank" rel="noopener">
+          <span data-icon="whatsapp"></span><span class="hide-sm">WhatsApp</span>
+        </a>
+        <button class="icon-btn menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+          <span class="menu-bars" aria-hidden="true"><span></span><span></span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" tabindex="-1">
+    <div class="page-loading" aria-live="polite">Cargando…</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo logo-footer" href="#/" aria-label="Inmobiliaria de ejemplo, ir al inicio">
+          <span class="logo-text"><strong>Inmobiliaria</strong> <span>de ejemplo</span></span>
+        </a>
+        <p>Propiedades seleccionadas en Bahía Blanca, con información clara y atención personalizada.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Explorar</h2>
+        <ul class="footer-links">
+          <li><a href="#/">Inicio</a></li>
+          <li><a href="#/propiedades?op=venta">Propiedades en venta</a></li>
+          <li><a href="#/propiedades?op=alquiler">Propiedades en alquiler</a></li>
+          <li><a href="#/favoritos">Mis favoritos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Contacto</h2>
+        <ul class="footer-links" id="footerContact"></ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Ayuda</h2>
+        <ul class="footer-links">
+          <li><a href="#/contacto">Formulario de contacto</a></li>
+          <li><a href="#/contacto?tipo=tasacion">Quiero vender o alquilar mi propiedad</a></li>
+          <li><a href="#/contacto?tipo=visita">Coordinar una visita</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year"></span> Inmobiliaria de ejemplo. Sitio de demostración desarrollado por Blux.</p>
+      <p class="footer-disclaimer">Demo ilustrativa: propiedades, precios, imágenes y datos de contacto son ficticios.</p>
+    </div>
+  </footer>
+
+  <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <span data-icon="whatsapp"></span>
+  </a>
+
+  <div class="toast-region" id="toastRegion" role="status" aria-live="polite"></div>
+
+  <!-- Configuración y datos -->
+  <script src="js/config.js"></script>
+  <script src="js/data/properties.js"></script>
+  <!-- Núcleo -->
+  <script src="js/utils.js"></script>
+  <script src="js/repository.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/forms.js"></script>
+  <!-- Vistas -->
+  <script src="js/views/home.js"></script>
+  <script src="js/views/catalog.js"></script>
+  <script src="js/views/detail.js"></script>
+  <script src="js/views/favorites.js"></script>
+  <script src="js/views/contact.js"></script>
+  <!-- Arranque -->
+  <script src="js/app.js"></script>
+</body>
+</html>
